@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
   changeCompletedRequested: updateTodo =>
     dispatch(todosActions.changeCompletedRequested(updateTodo)),
   deleteTodoRequested: key => dispatch(todosActions.deleteTodoRequested(key)),
-  fetchTodosRequested: uid => dispatch(todosActions.fetchTodosRequested()),
+  fetchTodosRequested: () => dispatch(todosActions.fetchTodosRequested()),
 })
 
 const container = compose(

@@ -1,5 +1,4 @@
 import React from 'react'
-import Api from '../../../../firestore'
 import AppBar from '../../../organisms/AppBar'
 
 class About extends React.Component {

@@ -1,6 +1,4 @@
 import React from 'react'
-import Api from '../../../../firestore'
-import AppBar from '../../../organisms/AppBar'
 
 class Login extends React.Component {
   onLogin() {

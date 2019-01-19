@@ -5,7 +5,7 @@ import Api from '../../../services/api'
 
 export function* deleteTodo(action) {
   try {
-    const data = yield call([Api, Api.deleteTodo], action.payload)
+    yield call([Api, Api.deleteTodo], action.payload)
     yield put(deleteTodoSucceeded({ key: action.payload }))
   } catch (error) {
     yield put(deleteTodoFailed(error))

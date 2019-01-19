@@ -1,5 +1,4 @@
 import React from 'react'
-import AppBar from '../../organisms/AppBar'
 
 const NotFound = () => {
   return (

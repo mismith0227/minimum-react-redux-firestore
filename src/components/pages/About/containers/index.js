@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { compose, pure, lifecycle } from 'recompose'
-import { authActions } from 'modules/Auth'
 import { todosActions } from 'modules/Todos'
 
 const mapStateToProps = state => ({
@@ -9,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchTodosRequested: uid => dispatch(todosActions.fetchTodosRequested()),
+  fetchTodosRequested: () => dispatch(todosActions.fetchTodosRequested()),
 })
 
 const container = compose(

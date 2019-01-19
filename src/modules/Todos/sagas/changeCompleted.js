@@ -5,7 +5,7 @@ import Api from '../../../services/api'
 
 export function* changeCompleted(action) {
   try {
-    const data = yield call([Api, Api.changeCompleted], action.payload)
+    yield call([Api, Api.changeCompleted], action.payload)
     yield put(
       changeCompletedSucceeded({
         key: action.payload.key,

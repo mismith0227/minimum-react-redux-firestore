@@ -13,8 +13,6 @@ const todos = (state = [], action) => {
       ]
     }
     case types.CHANGE_COMPLETED_SUCCEEDED: {
-      console.log(action.payload)
-
       return state.map(todo =>
         todo.key === action.payload.key
           ? Object.assign({}, todo, { completed: !todo.completed })
@@ -25,24 +23,26 @@ const todos = (state = [], action) => {
       let todos = state.filter(todo => todo.key !== action.payload.key)
       return todos
     }
-    case types.FETCH_TODOS_SUCCEEDED: {
-      if (action.payload) {
-        let todos = []
+    case types.FETCH_TODOS_SUCCEEDED:
+      {
         if (action.payload) {
-          Object.keys(action.payload).forEach(i => {
-            let key = action.payload[i].id
-            let todo = action.payload[i].data()
-            todos.push({
-              key: key,
-              createdAt: todo.createdAt,
-              name: todo.name,
-              completed: todo.completed,
+          let todos = []
+          if (action.payload) {
+            Object.keys(action.payload).forEach(i => {
+              let key = action.payload[i].id
+              let todo = action.payload[i].data()
+              todos.push({
+                key: key,
+                createdAt: todo.createdAt,
+                name: todo.name,
+                completed: todo.completed,
+              })
             })
-          })
+          }
+          return [...todos]
         }
-        return [...todos]
       }
-    }
+      break
     default:
       return state
   }
