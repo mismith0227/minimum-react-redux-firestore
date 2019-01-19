@@ -1,81 +1,81 @@
-import firebase from "firebase";
-import { firebaseConfig } from "../firestore/";
+import firebase from 'firebase'
+import { firebaseConfig } from '../firestore/'
 
 class Api {
   constructor() {
     if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-      firebase.firestore().settings({ timestampsInSnapshots: true });
+      firebase.initializeApp(firebaseConfig)
+      firebase.firestore().settings({ timestampsInSnapshots: true })
     }
-    this.auth = firebase.auth();
-    this.database = firebase.database();
+    this.auth = firebase.auth()
+    this.database = firebase.database()
   }
 
   login() {
-    let provider = new firebase.auth.GoogleAuthProvider();
-    return this.auth.signInWithPopup(provider);
+    let provider = new firebase.auth.GoogleAuthProvider()
+    return this.auth.signInWithPopup(provider)
   }
 
   logout() {
-    return this.auth.signOut();
+    return this.auth.signOut()
   }
 
   currentUser() {
-    return this.auth.currentUser;
+    return this.auth.currentUser
   }
 
   authStateChanged(emit) {
-    return this.auth.onAuthStateChanged(emit);
+    return this.auth.onAuthStateChanged(emit)
   }
 
   todo(uid) {
     return firebase
       .firestore()
-      .collection("todo")
+      .collection('todo')
       .doc(uid)
-      .collection("list");
+      .collection('list')
   }
 
   addTodo(name) {
-    const createdAt = Date.now();
-    const completed = false;
-    let uid = this.currentUser().uid;
+    const createdAt = Date.now()
+    const completed = false
+    let uid = this.currentUser().uid
     return this.todo(uid)
       .add({
         name,
         completed,
-        createdAt
+        createdAt,
       })
       .then(docRef => {
-        return docRef.id;
-      });
+        return docRef.id
+      })
   }
 
   changeCompleted(updateTodo) {
-    let uid = this.currentUser().uid;
+    let uid = this.currentUser().uid
     return this.todo(uid)
       .doc(updateTodo.key)
       .update({
-        completed: updateTodo.completed
-      });
+        completed: updateTodo.completed,
+      })
   }
 
   deleteTodo(key) {
-    let uid = this.currentUser().uid;
+    let uid = this.currentUser().uid
     return this.todo(uid)
       .doc(key)
-      .delete();
+      .delete()
   }
 
   fetchTodos() {
-    let uid = this.currentUser().uid;
+    let uid = this.currentUser().uid
     return this.todo(uid)
-      .orderBy("createdAt")
+      .orderBy('createdAt')
       .get()
       .then(sanpshot => {
-        return sanpshot.docs;
-      });
+        return sanpshot.docs
+      })
   }
 }
 
-export default new Api();
+export default new Api()

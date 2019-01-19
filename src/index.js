@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider as StoreProvider } from "react-redux";
-import { Route, Switch } from "react-router";
-import { ConnectedRouter } from "connected-react-router";
-import configureStore, { history } from "./store";
-import Routes from "./routes";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider as StoreProvider } from 'react-redux'
+import { Route, Switch } from 'react-router'
+import { ConnectedRouter } from 'connected-react-router'
+import configureStore, { history } from './store'
+import Routes from './routes'
 
-const store = configureStore();
+const store = configureStore()
 
 ReactDOM.render(
   <StoreProvider store={store}>
@@ -14,5 +14,5 @@ ReactDOM.render(
       <Routes />
     </ConnectedRouter>
   </StoreProvider>,
-  document.getElementById("index")
-);
+  document.getElementById('index')
+)

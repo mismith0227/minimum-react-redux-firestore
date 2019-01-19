@@ -1,13 +1,13 @@
-import React from "react";
-import Api from "../../../../firestore";
-import AppBar from "../../../organisms/AppBar";
+import React from 'react'
+import Api from '../../../../firestore'
+import AppBar from '../../../organisms/AppBar'
 
 class About extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      name: ""
-    };
+      name: '',
+    }
   }
 
   render() {
@@ -17,8 +17,8 @@ class About extends React.Component {
 
         <h1>about</h1>
       </div>
-    );
+    )
   }
 }
 
-export default About;
+export default About

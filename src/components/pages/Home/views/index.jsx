@@ -1,38 +1,38 @@
-import React from "react";
-import Api from "../../../../firestore";
-import AppBar from "../../../organisms/AppBar";
+import React from 'react'
+import Api from '../../../../firestore'
+import AppBar from '../../../organisms/AppBar'
 
 class Home extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      name: ""
-    };
+      name: '',
+    }
   }
 
   addTodo() {
-    const { name } = this.state;
-    this.props.addTodoRequested(name);
+    const { name } = this.state
+    this.props.addTodoRequested(name)
   }
 
   changeCompleted(key, completed) {
-    this.props.changeCompletedRequested({ key: key, completed: !completed });
+    this.props.changeCompletedRequested({ key: key, completed: !completed })
   }
 
   onDelete(key) {
-    this.props.deleteTodoRequested(key);
+    this.props.deleteTodoRequested(key)
   }
 
   onLogin() {
-    this.props.loginRequested();
+    this.props.loginRequested()
   }
 
   onLogout() {
-    this.props.logoutRequested();
+    this.props.logoutRequested()
   }
 
   onGetList() {
-    this.props.fetchTodosRequested();
+    this.props.fetchTodosRequested()
   }
 
   render() {
@@ -73,13 +73,13 @@ class Home extends React.Component {
                       削除
                     </button>
                   </li>
-                );
+                )
               })}
           </ul>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home

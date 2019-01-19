@@ -1,25 +1,25 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from './actionTypes'
 
 export const loginRequested = () => ({
-  type: actionTypes.LOGIN_REQUESTED
-});
+  type: actionTypes.LOGIN_REQUESTED,
+})
 export const loginSucceeded = user => ({
   type: actionTypes.LOGIN_SUCCEEDED,
-  payload: user
-});
+  payload: user,
+})
 export const loginFailed = () => ({
-  type: actionTypes.LOGIN_FAILED
-});
+  type: actionTypes.LOGIN_FAILED,
+})
 export const logoutRequested = () => ({
-  type: actionTypes.LOGOUT_REQUESTED
-});
+  type: actionTypes.LOGOUT_REQUESTED,
+})
 export const logoutSucceeded = user => ({
   type: actionTypes.LOGOUT_SUCCEEDED,
-  payload: user
-});
+  payload: user,
+})
 export const logoutFailed = () => ({
-  type: actionTypes.LOGOUT_FAILED
-});
+  type: actionTypes.LOGOUT_FAILED,
+})
 
 export default {
   loginRequested,
@@ -27,5 +27,5 @@ export default {
   loginFailed,
   logoutRequested,
   logoutSucceeded,
-  logoutFailed
-};
+  logoutFailed,
+}

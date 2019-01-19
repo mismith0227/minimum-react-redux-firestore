@@ -1,4 +1,4 @@
-import * as types from "./actionTypes";
+import * as types from './actionTypes'
 
 const todos = (state = [], action) => {
   switch (action.type) {
@@ -8,44 +8,44 @@ const todos = (state = [], action) => {
         {
           key: action.payload.key,
           name: action.payload.name,
-          completed: action.payload.completed
-        }
-      ];
+          completed: action.payload.completed,
+        },
+      ]
     }
     case types.CHANGE_COMPLETED_SUCCEEDED: {
-      console.log(action.payload);
+      console.log(action.payload)
 
       return state.map(todo =>
         todo.key === action.payload.key
           ? Object.assign({}, todo, { completed: !todo.completed })
           : todo
-      );
+      )
     }
     case types.DELETE_TODO_SUCCEEDED: {
-      let todos = state.filter(todo => todo.key !== action.payload.key);
-      return todos;
+      let todos = state.filter(todo => todo.key !== action.payload.key)
+      return todos
     }
     case types.FETCH_TODOS_SUCCEEDED: {
       if (action.payload) {
-        let todos = [];
+        let todos = []
         if (action.payload) {
           Object.keys(action.payload).forEach(i => {
-            let key = action.payload[i].id;
-            let todo = action.payload[i].data();
+            let key = action.payload[i].id
+            let todo = action.payload[i].data()
             todos.push({
               key: key,
               createdAt: todo.createdAt,
               name: todo.name,
-              completed: todo.completed
-            });
-          });
+              completed: todo.completed,
+            })
+          })
         }
-        return [...todos];
+        return [...todos]
       }
     }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default todos;
+export default todos

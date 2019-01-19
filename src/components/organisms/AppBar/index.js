@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const AppBarInner = styled.div`
   border-bottom: 1px solid #888;
-`;
+`
 
 const AppBar = () => (
   <AppBarInner>
@@ -20,6 +20,6 @@ const AppBar = () => (
       </ul>
     </div>
   </AppBarInner>
-);
+)
 
-export default AppBar;
+export default AppBar

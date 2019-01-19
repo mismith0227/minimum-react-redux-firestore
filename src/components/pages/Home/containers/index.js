@@ -1,12 +1,12 @@
-import { connect } from "react-redux";
-import { compose, pure, lifecycle } from "recompose";
-import { authActions } from "modules/Auth";
-import { todosActions } from "modules/Todos";
+import { connect } from 'react-redux'
+import { compose, pure, lifecycle } from 'recompose'
+import { authActions } from 'modules/Auth'
+import { todosActions } from 'modules/Todos'
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  todos: state.todos
-});
+  todos: state.todos,
+})
 
 const mapDispatchToProps = dispatch => ({
   loginRequested: () => dispatch(authActions.loginRequested()),
@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch => ({
   changeCompletedRequested: updateTodo =>
     dispatch(todosActions.changeCompletedRequested(updateTodo)),
   deleteTodoRequested: key => dispatch(todosActions.deleteTodoRequested(key)),
-  fetchTodosRequested: uid => dispatch(todosActions.fetchTodosRequested())
-});
+  fetchTodosRequested: uid => dispatch(todosActions.fetchTodosRequested()),
+})
 
 const container = compose(
   connect(
@@ -25,15 +25,15 @@ const container = compose(
   ),
   lifecycle({
     componentDidMount() {
-      this.props.fetchTodosRequested();
+      this.props.fetchTodosRequested()
     },
     componentWillReceiveProps(nextProps) {
       if (nextProps.auth.uid !== this.props.auth.uid) {
-        this.props.fetchTodosRequested();
+        this.props.fetchTodosRequested()
       }
-    }
+    },
   }),
   pure
-);
+)
 
-export default container;
+export default container

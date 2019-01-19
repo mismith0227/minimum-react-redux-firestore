@@ -1,4 +1,4 @@
-import container from "./containers";
-import Login from "./views";
+import container from './containers'
+import Login from './views'
 
-export default container(Login);
+export default container(Login)
