@@ -20,6 +20,11 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "connected-react-router": "^6.1.0",
     "firebase": "^5.7.0",

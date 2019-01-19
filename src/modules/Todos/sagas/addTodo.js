@@ -6,6 +6,7 @@ import Api from '../../../services/api'
 export function* addTodo(action) {
   try {
     const data = yield call([Api, Api.addTodo], action.payload)
+    console.log('test')
     yield put(addTodoSucceeded({ key: data, name: action.payload }))
   } catch (error) {
     yield put(addTodoFailed(error))
